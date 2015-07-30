@@ -21,9 +21,6 @@ RUN apt-get install -y python-pip python-virtualenv
 RUN apt-get install -y libjpeg-dev libfreetype6-dev  zlib1g-dev libpng12-dev python-imaging 
 RUN apt-get install -y libmysqlclient-dev
 
-#mysql python
-ADD ./mysql-connector-python_2.0.4-1ubuntu14.04_all.deb /tmp/mysql-connector-python_2.0.4-1ubuntu14.04_all.deb
-RUN dpkg -i ./tmp/mysql-connector-python_2.0.4-1ubuntu14.04_all.deb
 
 
 # build dependencies for postgres and image bindings

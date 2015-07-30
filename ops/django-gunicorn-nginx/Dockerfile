@@ -22,3 +22,6 @@ ADD ./nginx.conf /etc/nginx/nginx.conf
 
 # start supervisor to run our wsgi server
 CMD supervisord -c /etc/supervisord.conf -n
+
+# expose port(s)
+EXPOSE 80
