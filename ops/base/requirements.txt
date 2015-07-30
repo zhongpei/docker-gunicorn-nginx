@@ -20,3 +20,5 @@ amqp==1.4.6
 anyjson==0.3.3
 redis==2.7.2
 xlwt==1.0.0
+gunicorn
+

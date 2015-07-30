@@ -1,4 +1,4 @@
-FROM rehabstudio/python-base
+FROM zhongpei/django-base
 MAINTAINER Peter McConnell <peter.mcconnell@rehabstudio.com>
 
 RUN pip install supervisor-stdout  -i  http://pypi.douban.com/simple/ 
