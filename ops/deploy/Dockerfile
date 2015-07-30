@@ -1,7 +1,7 @@
 FROM rehabstudio/python-base
 MAINTAINER Peter McConnell <peter.mcconnell@rehabstudio.com>
 
-RUN pip install supervisor-stdout
+RUN pip install supervisor-stdout  -i  http://pypi.douban.com/simple/ 
 
 # file management, everything after an ADD is uncached, so we do it as late as
 # possible in the process.

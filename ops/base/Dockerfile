@@ -15,7 +15,14 @@ RUN apt-get update --fix-missing
 RUN apt-get install -y build-essential git
 RUN apt-get install -y python python-dev python-setuptools
 RUN apt-get install -y python-pip python-virtualenv
-RUN apt-get install -y nginx supervisor
+RUN apt-get install -y nginx-full supervisor
+RUN apt-get install -y libjpeg-dev libfreetype6-dev  zlib1g-dev libpng12-dev python-imaging 
+RUN apt-get install -y libmysqlclient-dev
+ADD ./mysql-connector-python_2.0.4-1ubuntu14.04_all.deb /tmp
+RUN dpkg -i ./tmp/mysql-connector-python_2.0.4-1ubuntu14.04_all.deb
+
+
+
 
 # stop supervisor service as we'll run it manually
 RUN service supervisor stop
@@ -26,7 +33,7 @@ RUN apt-get build-dep -y python-imaging python-psycopg2
 # create a virtual environment and install all depsendecies from pypi
 RUN virtualenv /opt/venv
 ADD ./requirements.txt /opt/venv/requirements.txt
-RUN /opt/venv/bin/pip install -r /opt/venv/requirements.txt
+RUN /opt/venv/bin/pip install -r /opt/venv/requirements.txt   -i  http://pypi.douban.com/simple/
 
 # expose port(s)
 EXPOSE 80
