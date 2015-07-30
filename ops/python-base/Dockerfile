@@ -8,35 +8,27 @@ RUN ln -sf /bin/true /sbin/initctl
 # no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-# get up to date
+#sources mirrors.163.com
 RUN sed -i 's/archive.ubuntu.com/mirrors.163.com/' /etc/apt/sources.list
+
+# get up to date
 RUN apt-get update --fix-missing
 
 # global installs [applies to all envs!]
 RUN apt-get install -y build-essential git
 RUN apt-get install -y python python-dev python-setuptools
 RUN apt-get install -y python-pip python-virtualenv
-RUN apt-get install -y nginx-full supervisor
 RUN apt-get install -y libjpeg-dev libfreetype6-dev  zlib1g-dev libpng12-dev python-imaging 
 RUN apt-get install -y libmysqlclient-dev
 
-#mysql client
+#mysql python
 ADD ./mysql-connector-python_2.0.4-1ubuntu14.04_all.deb /tmp/mysql-connector-python_2.0.4-1ubuntu14.04_all.deb
 RUN dpkg -i ./tmp/mysql-connector-python_2.0.4-1ubuntu14.04_all.deb
 
 
-
-
-# stop supervisor service as we'll run it manually
-RUN service supervisor stop
-
 # build dependencies for postgres and image bindings
 RUN apt-get build-dep -y python-imaging python-psycopg2
 
-# create a virtual environment and install all depsendecies from pypi
-RUN virtualenv /opt/venv
-ADD ./requirements.txt /opt/venv/requirements.txt
-RUN /opt/venv/bin/pip install -r /opt/venv/requirements.txt   -i  http://pypi.douban.com/simple/
 
 # expose port(s)
 EXPOSE 80
