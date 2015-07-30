@@ -1,5 +1,5 @@
 celery==3.1.18
-chardet==2.0.1
+chardet
 colorama==0.2.5
 Django==1.7.8
 django-bootstrap3==5.1.1
