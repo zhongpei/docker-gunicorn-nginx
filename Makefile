@@ -10,8 +10,8 @@ build-django-base:build-python-base
 	cd ops/django-base/; docker build -t="zhongpei/django-base" .
 
  
-build-local: build-django-base
-	cd ops/local/; docker build -t="zhongpei/django-local" .
+build-django-local: build-django-base
+	cd ops/django-local/; docker build -t="zhongpei/django-local" .
 
 build-django-gunicorn: build-django-base
 	cd ops/django-gunicorn/; docker build -t="zhongpei/django-gunicorn" .
@@ -21,7 +21,7 @@ build-django-gunicorn-nginx: build-django-base
 	cd ops/django-gunicorn-nginx/; docker build -t="zhongpei/django-gunicorn-nginx" .
 
 
-build:build-django-gunicorn-nginx build-local build-django-gunicorn
+build:build-django-gunicorn-nginx build-django-local build-django-gunicorn
 	echo "ok"
 
 run-local: build-local
