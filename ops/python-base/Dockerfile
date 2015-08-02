@@ -28,4 +28,4 @@ RUN apt-get build-dep -y python-imaging python-psycopg2
 
 
 # expose port(s)
-EXPOSE 80
+# EXPOSE 80
