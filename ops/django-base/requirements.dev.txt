@@ -19,3 +19,5 @@ anyjson
 xlwt
 gunicorn
 django-redis
+elasticutils
+pybloom

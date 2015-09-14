@@ -21,3 +21,5 @@ anyjson==0.3.3
 xlwt==1.0.0
 gunicorn
 django-redis==4.2.0
+elasticutils==0.10.3
+pybloom==1.1
