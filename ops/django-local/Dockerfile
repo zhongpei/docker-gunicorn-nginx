@@ -1,4 +1,4 @@
-FROM zhongpei/django-base
+FROM zhongpei/django-base:2
 MAINTAINER Zhong Pei <zhongpei@vip.qq.com>
 
 #

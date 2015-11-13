@@ -21,3 +21,5 @@ gunicorn
 django-redis
 elasticutils
 pybloom
+supervisor
+supervisor-stdout
